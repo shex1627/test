@@ -216,14 +216,15 @@ const styles = `
   }
 `;
 
-const SUBJECTS = ["General inquiry", "Project collaboration", "Support request", "Partnership", "Other"];
+// CHANGED: Replaced "Support request" and "Partnership" with "Feedback" and "Consulting"
+const SUBJECTS = ["General inquiry", "Feedback", "Consulting", "Other"];
 
 const ContactForm = () => {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", subject: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-    const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -239,8 +240,8 @@ const ContactForm = () => {
           {submitted ? (
             <div className="cf-success">
               <div className="cf-success-icon">✦</div>
-              <h2>Message received!</h2>
-              <p>Thanks for reaching out. We'll respond within 48 hours.</p>
+              <h2>Message sent</h2>
+              <p>Your message is on its way. Expect a reply within a day.</p>
             </div>
           ) : (
             <>
@@ -285,7 +286,7 @@ const ContactForm = () => {
                 <div className="cf-field">
                   <label className="cf-label" htmlFor="message">Message</label>
                   <textarea className="cf-textarea" id="message" name="message"
-                    placeholder="What would you like to discuss?"
+                    placeholder="Describe your project or question…"
                     value={form.message} onChange={handleChange} required />
                 </div>
 
