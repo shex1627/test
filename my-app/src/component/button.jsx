@@ -35,79 +35,80 @@ const styles = `
 `;
 
 export const Button = ({ variant = "primary", size = "md", loading = false, disabled = false, onClick, children }) => {
-  const handleClick = (e) => {
-    const btn = e.currentTarget;
-    const ripple = document.createElement("span");
-    const rect = btn.getBoundingClientRect();
-    const sz = Math.max(rect.width, rect.height);
-    ripple.className = "ripple";
-    ripple.style.width = ripple.style.height = sz + "px";
-    ripple.style.left = (e.clientX - rect.left - sz / 2) + "px";
-    ripple.style.top = (e.clientY - rect.top - sz / 2) + "px";
-    btn.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 500);
-    if (onClick) onClick(e);
-  };
+    const handleClick = (e) => {
+        const btn = e.currentTarget;
+        const ripple = document.createElement("span");
+        const rect = btn.getBoundingClientRect();
+        const sz = Math.max(rect.width, rect.height);
+        ripple.className = "ripple";
+        ripple.style.width = ripple.style.height = sz + "px";
+        ripple.style.left = (e.clientX - rect.left - sz / 2) + "px";
+        ripple.style.top = (e.clientY - rect.top - sz / 2) + "px";
+        btn.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 500);
+        if (onClick) onClick(e);
+    };
 
-  const sizeClass = size === "sm" ? "btn-sm" : size === "lg" ? "btn-lg" : "";
+    const sizeClass = size === "sm" ? "btn-sm" : size === "lg" ? "btn-lg" : "";
 
-  return (
-    <button
-      className={"btn-root btn-" + variant + (sizeClass ? " " + sizeClass : "")}
-      disabled={disabled || loading}
-      onClick={handleClick}
-    >
-      {loading && <span className="btn-spinner" />}
-      {children}
-    </button>
-  );
+    return (
+        <button
+            className={"btn-root btn-" + variant + (sizeClass ? " " + sizeClass : "")}
+            disabled={disabled || loading}
+            onClick={handleClick}
+        >
+            {loading && <span className="btn-spinner" />}
+            {children}
+        </button>
+    );
 };
 
 const button = () => {
-  const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-  const handleLoadingDemo = () => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 2000);
-  };
+    const handleLoadingDemo = () => {
+        setLoading(true);
+        setTimeout(() => setLoading(false), 2000);
+    };
 
-  return (
-    <>
-      <style>{styles}</style>
-      <div className="demo-page">
-        <p className="demo-title">Button Component</p>
+    return (
+        <>
+            <style>{styles}</style>
+            <div className="demo-page">
+                <p className="demo-title">Button Component</p>
 
-        <div className="demo-section">
-          <p className="demo-label">Variants</p>
-          <div className="demo-row">
-            <Button variant="primary" className="primary">Primary button</Button>
-            <Button variant="outline" className="outline">Outline button </Button>
-            <Button variant="ghost" className="ghost">Ghost button</Button>
-            <Button variant="danger" className="danger">Danger button</Button>
-          </div>
-        </div>
+                <div className="demo-section">
+                    <p className="demo-label">Variants</p>
+                    <div className="demo-row">
 
-        <div className="demo-section">
-          <p className="demo-label">Sizes</p>
-          <div className="demo-row">
-            <Button size="sm">Small</Button>
-            <Button size="md">Medium</Button>
-            <Button size="lg">Large</Button>
-          </div>
-        </div>
+                        <Button variant="primary">Submit</Button>
+                        <Button variant="outline">Cancel</Button>
+                        <Button variant="primary">Save</Button>
+                        <Button variant="outline">Edit</Button>
+                    </div>
+                </div>
 
-        <div className="demo-section">
-          <p className="demo-label">States</p>
-          <div className="demo-row">
-            <Button loading={loading} onClick={handleLoadingDemo}>
-              {loading ? "Loading..." : "Click to Load"}
-            </Button>
-            <Button disabled>Disabled</Button>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+                <div className="demo-section">
+                    <p className="demo-label">Sizes</p>
+                    <div className="demo-row">
+                        <Button size="sm">Small</Button>
+                        <Button size="md">Medium</Button>
+                        <Button size="lg">Large</Button>
+                    </div>
+                </div>
+
+                <div className="demo-section">
+                    <p className="demo-label">States</p>
+                    <div className="demo-row">
+                        <Button loading={loading} onClick={handleLoadingDemo}>
+                            {loading ? "Loading..." : "Click to Load"}
+                        </Button>
+                        <Button disabled>Disabled</Button>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 };
 
-export default  button ;
+export default button;
