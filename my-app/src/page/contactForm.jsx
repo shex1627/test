@@ -239,17 +239,17 @@ const ContactForm = () => {
           {submitted ? (
             <div className="cf-success">
               <div className="cf-success-icon">✦</div>
-              <h2>Message sent</h2>
-              <p>Thank you for reaching out. I'll be in touch soon.</p>
+              <h2>Message received!</h2>
+              <p>Thanks for reaching out. We'll respond within 48 hours.</p>
             </div>
           ) : (
             <>
               <div className="cf-header">
-                <div className="cf-eyebrow">Get in touch</div>
-                <h1 className="cf-title">Let's start a <em>conversation</em></h1>
+                <div className="cf-eyebrow">Contact us</div>
+                <h1 className="cf-title">We'd love to <em>hear from you</em></h1>
                 <p className="cf-subtitle">
-                  Have a project in mind or just want to say hello?<br />
-                  Fill in the form and I'll get back to you within 24 hours.
+                  Have a question or want to work together?<br />
+                  Send us a message and we'll get back to you shortly.
                 </p>
               </div>
 
@@ -285,7 +285,7 @@ const ContactForm = () => {
                 <div className="cf-field">
                   <label className="cf-label" htmlFor="message">Message</label>
                   <textarea className="cf-textarea" id="message" name="message"
-                    placeholder="Tell me what's on your mind…"
+                    placeholder="What would you like to discuss?"
                     value={form.message} onChange={handleChange} required />
                 </div>
 
@@ -294,7 +294,7 @@ const ContactForm = () => {
                 <div className="cf-footer">
                   <p className="cf-privacy">By submitting you agree to our <a href="#">Privacy Policy</a>.</p>
                   <button className="cf-btn" type="submit" disabled={loading}>
-                    {loading ? "Sending…" : "Send message"}
+                    {loading ? "Sending…" : "Submit"}
                   </button>
                 </div>
               </form>
