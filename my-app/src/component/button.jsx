@@ -80,10 +80,10 @@ const button = () => {
         <div className="demo-section">
           <p className="demo-label">Variants</p>
           <div className="demo-row">
-            <Button variant="primary">Primary</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="ghost">Ghost</Button>
-            <Button variant="danger">Danger</Button>
+            <Button variant="primary" className="primary">Primary button</Button>
+            <Button variant="outline" className="outline">Outline button </Button>
+            <Button variant="ghost" className="ghost">Ghost button</Button>
+            <Button variant="danger" className="danger">Danger button</Button>
           </div>
         </div>
 
