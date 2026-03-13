@@ -74,39 +74,38 @@ const button = () => {
     return (
         <>
             <style>{styles}</style>
-            <div className="demo-page">
-                <p className="demo-title">Button Component</p>
 
-                <div className="demo-section">
-                    <p className="demo-label">Variants</p>
-                    <div className="demo-row">
+            <p className="demo-title">Button Component</p>
 
-                        <Button variant="primary">Submit</Button>
-                        <Button variant="outline">Cancel</Button>
-                        <Button variant="primary">Save</Button>
-                        <Button variant="outline">Edit</Button>
-                    </div>
-                </div>
-
-                <div className="demo-section">
-                    <p className="demo-label">Sizes</p>
-                    <div className="demo-row">
-                        <Button size="sm">Small</Button>
-                        <Button size="md">Medium</Button>
-                        <Button size="lg">Large</Button>
-                    </div>
-                </div>
-
-                <div className="demo-section">
-                    <p className="demo-label">States</p>
-                    <div className="demo-row">
-                        <Button loading={loading} onClick={handleLoadingDemo}>
-                            {loading ? "Loading..." : "Click to Load"}
-                        </Button>
-                        <Button disabled>Disabled</Button>
-                    </div>
+            <div className="demo-section">
+                <p className="demo-label">Variants</p>
+                <div className="demo-row">
+                    <Button variant="primary">Submit</Button>
+                    <Button variant="outline">Cancel</Button>
+                    <Button variant="primary">Save</Button>
+                    <Button variant="outline">Edit</Button>
                 </div>
             </div>
+
+            <div className="demo-section">
+                <p className="demo-label">Sizes</p>
+                <div className="demo-row">
+                    <Button size="sm">Small</Button>
+                    <Button size="md">Medium</Button>
+                    <Button size="lg">Large</Button>
+                </div>
+            </div>
+
+            <div className="demo-section">
+                <p className="demo-label">States</p>
+                <div className="demo-row">
+                    <Button loading={loading} onClick={handleLoadingDemo}>
+                        {loading ? "Loading..." : "Click to Load"}
+                    </Button>
+                    <Button disabled>Disabled</Button>
+                </div>
+            </div>
+
         </>
     );
 };
