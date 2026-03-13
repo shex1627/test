@@ -10,16 +10,19 @@ const styles = `
     border: none; outline: none; position: relative; overflow: hidden;
     transition: transform 0.15s ease, box-shadow 0.15s ease; user-select: none;
   }
-  .btn-primary { background: #0f0f0f; color: #f5f5f5; padding: 12px 28px; border-radius: 2px; box-shadow: 4px 4px 0px #c8f04a; }
-  .btn-primary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0px #c8f04a; }
-  .btn-primary:active { transform: translate(2px,2px); box-shadow: 2px 2px 0px #c8f04a; }
-  .btn-outline { background: transparent; color: #0f0f0f; padding: 11px 27px; border-radius: 2px; border: 1.5px solid #0f0f0f; }
+  .btn-primary { background: #0f0f0f; color: #f5f5f5; padding: 12px 28px; border-radius: 8px; box-shadow: 4px 4px 0px #e07b39; }
+  .btn-primary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0px #e07b39; }
+  .btn-primary:active { transform: translate(2px,2px); box-shadow: 2px 2px 0px #e07b39; }
+  .btn-outline { background: transparent; color: #0f0f0f; padding: 11px 27px; border-radius: 8px; border: 1.5px solid #0f0f0f; }
   .btn-outline:hover { background: #0f0f0f; color: #f5f5f5; }
-  .btn-ghost { background: transparent; color: #555; padding: 11px 24px; border-radius: 2px; border: 1.5px solid transparent; }
+  .btn-ghost { background: transparent; color: #555; padding: 11px 24px; border-radius: 8px; border: 1.5px solid transparent; }
   .btn-ghost:hover { border-color: #ddd; color: #0f0f0f; }
-  .btn-danger { background: #ff3b3b; color: #fff; padding: 12px 28px; border-radius: 2px; box-shadow: 4px 4px 0px #7a0000; }
+  .btn-danger { background: #ff3b3b; color: #fff; padding: 12px 28px; border-radius: 8px; box-shadow: 4px 4px 0px #7a0000; }
   .btn-danger:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0px #7a0000; }
   .btn-danger:active { transform: translate(2px,2px); box-shadow: 2px 2px 0px #7a0000; }
+  .btn-success { background: #2ecc71; color: #fff; padding: 12px 28px; border-radius: 8px; box-shadow: 4px 4px 0px #1a7a43; }
+  .btn-success:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0px #1a7a43; }
+  .btn-success:active { transform: translate(2px,2px); box-shadow: 2px 2px 0px #1a7a43; }
   .btn-sm { font-size: 11px; padding: 8px 18px; }
   .btn-lg { font-size: 15px; padding: 16px 36px; }
   .btn-root:disabled { opacity: 0.38; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
@@ -82,8 +85,8 @@ const button = () => {
                 <div className="demo-row">
                     <Button variant="primary">Submit</Button>
                     <Button variant="outline">Cancel</Button>
-                    <Button variant="primary">Save</Button>
-                    <Button variant="outline">Edit</Button>
+                    <Button variant="danger">Delete</Button>
+                    <Button variant="success">Confirm</Button>
                 </div>
             </div>
 

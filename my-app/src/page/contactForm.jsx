@@ -7,7 +7,7 @@ const styles = `
 
   .cf-wrap {
     min-height: 100vh;
-    background: #0e0e0e;
+    background: #1a1a2e;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,7 +38,7 @@ const styles = `
 
   .cf-container {
     width: 100%;
-    max-width: 580px;
+    max-width: 680px;
     animation: fadeUp 0.7s ease both;
   }
 
@@ -54,7 +54,7 @@ const styles = `
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #c8a96e;
+    color: #e07b39;
     margin-bottom: 0.75rem;
     display: flex;
     align-items: center;
@@ -65,7 +65,7 @@ const styles = `
     content: '';
     display: block;
     width: 28px; height: 1px;
-    background: #c8a96e;
+    background: #e07b39;
   }
 
   .cf-title {
@@ -77,7 +77,7 @@ const styles = `
 
   .cf-title em {
     font-style: italic;
-    color: #c8a96e;
+    color: #e07b39;
   }
 
   .cf-subtitle {
@@ -107,7 +107,7 @@ const styles = `
     transition: color 0.2s;
   }
 
-  .cf-field:focus-within .cf-label { color: #c8a96e; }
+  .cf-field:focus-within .cf-label { color: #e07b39; }
 
   .cf-input, .cf-textarea, .cf-select {
     background: #161616;
@@ -126,14 +126,14 @@ const styles = `
   .cf-input::placeholder, .cf-textarea::placeholder { color: #3a3835; }
 
   .cf-input:focus, .cf-textarea:focus, .cf-select:focus {
-    border-color: #c8a96e;
-    background: rgba(200,169,110,0.06);
-    box-shadow: 0 0 0 3px rgba(200,169,110,0.08);
+    border-color: #e07b39;
+    background: rgba(224,123,57,0.06);
+    box-shadow: 0 0 0 3px rgba(224,123,57,0.08);
   }
 
   .cf-textarea {
     resize: vertical;
-    min-height: 128px;
+    min-height: 160px;
     line-height: 1.6;
   }
 
@@ -162,13 +162,13 @@ const styles = `
     line-height: 1.5;
   }
 
-  .cf-privacy a { color: #c8a96e; text-decoration: none; }
+  .cf-privacy a { color: #e07b39; text-decoration: none; }
 
   .cf-btn {
-    background: #c8a96e;
+    background: #e07b39;
     border: none;
     border-radius: 4px;
-    color: #0e0e0e;
+    color: #fff;
     cursor: pointer;
     font-family: 'DM Sans', sans-serif;
     font-size: 0.75rem;
@@ -192,12 +192,12 @@ const styles = `
 
   .cf-success-icon {
     width: 56px; height: 56px;
-    border: 1.5px solid #c8a96e;
+    border: 1.5px solid #e07b39;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     margin: 0 auto 1.5rem;
     font-size: 1.3rem;
-    color: #c8a96e;
+    color: #e07b39;
   }
 
   .cf-success h2 {
@@ -216,11 +216,10 @@ const styles = `
   }
 `;
 
-// CHANGED: Replaced "Support request" and "Partnership" with "Feedback" and "Consulting"
-const SUBJECTS = ["General inquiry", "Feedback", "Consulting", "Other"];
+const SUBJECTS = ["General inquiry", "Feedback", "Consulting", "Bug report", "Other"];
 
 const ContactForm = () => {
-  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", subject: "", message: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -240,14 +239,14 @@ const ContactForm = () => {
           {submitted ? (
             <div className="cf-success">
               <div className="cf-success-icon">✦</div>
-              <h2>Message sent</h2>
-              <p>Your message is on its way. Expect a reply within a day.</p>
+              <h2>Thanks for reaching out!</h2>
+              <p>We'll get back to you within 48 hours.</p>
             </div>
           ) : (
             <>
               <div className="cf-header">
-                <div className="cf-eyebrow">Contact us</div>
-                <h1 className="cf-title">We'd love to <em>hear from you</em></h1>
+                <div className="cf-eyebrow">Get in touch</div>
+                <h1 className="cf-title">Let's <em>connect</em></h1>
                 <p className="cf-subtitle">
                   Have a question or want to work together?<br />
                   Send us a message and we'll get back to you shortly.
@@ -275,6 +274,12 @@ const ContactForm = () => {
                 </div>
 
                 <div className="cf-field">
+                  <label className="cf-label" htmlFor="phone">Phone number</label>
+                  <input className="cf-input" type="tel" id="phone" name="phone"
+                    placeholder="+1 (555) 000-0000" value={form.phone} onChange={handleChange} />
+                </div>
+
+                <div className="cf-field">
                   <label className="cf-label" htmlFor="subject">Subject</label>
                   <select className="cf-select" id="subject" name="subject"
                     value={form.subject} onChange={handleChange}>
@@ -295,7 +300,7 @@ const ContactForm = () => {
                 <div className="cf-footer">
                   <p className="cf-privacy">By submitting you agree to our <a href="#">Privacy Policy</a>.</p>
                   <button className="cf-btn" type="submit" disabled={loading}>
-                    {loading ? "Sending…" : "Submit"}
+                    {loading ? "Sending…" : "Send message"}
                   </button>
                 </div>
               </form>
