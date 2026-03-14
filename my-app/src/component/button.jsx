@@ -15,8 +15,9 @@ const styles = `
   .btn-primary:active { transform: translate(2px,2px); box-shadow: 2px 2px 0px #e07b39; }
   .btn-outline { background: transparent; color: #0f0f0f; padding: 11px 27px; border-radius: 8px; border: 1.5px solid #0f0f0f; }
   .btn-outline:hover { background: #0f0f0f; color: #f5f5f5; }
-  .btn-ghost { background: transparent; color: #555; padding: 11px 24px; border-radius: 8px; border: 1.5px solid transparent; }
-  .btn-ghost:hover { border-color: #ddd; color: #0f0f0f; }
+  .btn-warning { background: #f59e0b; color: #fff; padding: 12px 28px; border-radius: 8px; box-shadow: 4px 4px 0px #92400e; }
+  .btn-warning:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0px #92400e; }
+  .btn-warning:active { transform: translate(2px,2px); box-shadow: 2px 2px 0px #92400e; }
   .btn-danger { background: #ff3b3b; color: #fff; padding: 12px 28px; border-radius: 8px; box-shadow: 4px 4px 0px #7a0000; }
   .btn-danger:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0px #7a0000; }
   .btn-danger:active { transform: translate(2px,2px); box-shadow: 2px 2px 0px #7a0000; }
@@ -78,37 +79,28 @@ const button = () => {
         <>
             <style>{styles}</style>
 
-            <p className="demo-title">Button Component</p>
+            <p className="demo-title">Button System</p>
 
             <div className="demo-section">
-                <p className="demo-label">Variants</p>
+                <p className="demo-label">All Variants</p>
                 <div className="demo-row">
                     <Button variant="primary">Submit</Button>
                     <Button variant="outline">Cancel</Button>
+                    <Button variant="warning">Warning</Button>
                     <Button variant="danger">Delete</Button>
                     <Button variant="success">Confirm</Button>
                 </div>
             </div>
 
             <div className="demo-section">
-                <p className="demo-label">Sizes</p>
-                <div className="demo-row">
-                    <Button size="sm">Small</Button>
-                    <Button size="md">Medium</Button>
-                    <Button size="lg">Large</Button>
-                </div>
-            </div>
-
-            <div className="demo-section">
-                <p className="demo-label">States</p>
+                <p className="demo-label">Interactive</p>
                 <div className="demo-row">
                     <Button loading={loading} onClick={handleLoadingDemo}>
-                        {loading ? "Loading..." : "Click to Load"}
+                        {loading ? "Processing..." : "Trigger Load"}
                     </Button>
-                    <Button disabled>Disabled</Button>
+                    <Button disabled>Unavailable</Button>
                 </div>
             </div>
-
         </>
     );
 };
